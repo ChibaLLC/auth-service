@@ -3,4 +3,8 @@ export default defineNuxtConfig({
 	compatibilityDate: "2024-11-01",
 	devtools: { enabled: true },
 	extends: ["github:kgarchie/nuxt-starter"],
+	modules: ["@nuxtjs/tailwindcss"],
+	future: {
+		compatibilityVersion: 4,
+	},
 });
