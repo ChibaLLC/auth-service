@@ -1,6 +1,6 @@
 <template>
-	<div>Hello</div>
+	<NuxtLayout>
+		<NuxtLoadingIndicator />
+		<NuxtPage />
+	</NuxtLayout>
 </template>
-<script setup lang="ts">
-
-</script>
