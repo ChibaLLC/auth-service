@@ -3,6 +3,7 @@ import { sessions, users } from "~~/server/db/schema";
 import { and, eq } from "drizzle-orm";
 import { ulid } from "ulid";
 import { capitalize } from "vue";
+import { consola } from "consola";
 
 export async function getUserByToken(token: string): Promise<Drizzle.User.select | null> {
 	if (!token) return null;
@@ -71,7 +72,7 @@ export async function getUserByUlId(ulid: string) {
 				.from(users)
 				.where(eq(users.ulid, ulid))
 				.catch((e) => {
-					log.error(e);
+					consola.error(e);
 					return [];
 				})
 		).at(0) || null

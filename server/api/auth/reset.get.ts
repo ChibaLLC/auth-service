@@ -1,6 +1,7 @@
 import { getUserByEmail } from "~~/server/api/users/utils/queries";
 import { createToken } from "~~/server/api/auth/utils/queries";
 import { z } from "zod";
+import {consola} from "consola"
 
 export async function sendPasswordResetLink(email: string, origin: string, token: string, redirect?: string) {
 	const link = `${origin}/auth/update?email=${email}&token=${token}&redirect=${redirect}`;
@@ -12,7 +13,7 @@ export async function sendPasswordResetLink(email: string, origin: string, token
 		text: message
 	};
 
-	log.info(`Sending message:\n${message}\nto: ${email}`);
+	consola.info(`Sending message:\n${message}\nto: ${email}`);
 	return await sendMail(options);
 }
 
